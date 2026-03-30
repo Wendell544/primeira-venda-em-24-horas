@@ -201,21 +201,23 @@ h1 {
     transition: transform 0.4s ease-in-out;
     gap: 20px;
     padding: 10px;
+    will-change: transform;
 }
 .carousel-slide {
-    flex: 0 0 100%;
-    padding: 10px;
+    flex: 0 0 auto;
+    width: calc(100% - 20px); /* fallback, será ajustado via JS */
     box-sizing: border-box;
 }
 .carousel-slide img {
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
     display: block;
     border-radius: 24px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     border: 1px solid #f5b04240;
     background: #1e1e1e;
+    object-fit: cover;
 }
 .carousel-btn {
     position: absolute;
@@ -263,16 +265,6 @@ h1 {
     width: 24px;
     border-radius: 8px;
 }
-@media (min-width: 768px) {
-    .carousel-slide {
-        flex: 0 0 50%;
-    }
-}
-@media (min-width: 1024px) {
-    .carousel-slide {
-        flex: 0 0 33.33%;
-    }
-}
 
 /* Seção Caio Martins */
 .caio-section {
@@ -297,6 +289,7 @@ h1 {
 }
 .caio-photo img {
     max-width: 100%;
+    height: auto;
     border-radius: 24px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     border: 2px solid #f5b042;
@@ -348,20 +341,94 @@ h1 {
     text-decoration: none;
 }
 
+/* ========== RESPONSIVO CELULAR ========== */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-    .btn-primary {
+    .subhead {
         font-size: 1rem;
-        padding: 14px 24px;
+    }
+    .btn-primary, .btn-checkout {
+        font-size: 1rem;
+        padding: 14px 20px;
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        margin: 10px 0;
+    }
+    .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        text-align: center;
+    }
+    .hero {
+        padding: 20px 0;
+    }
+    .hero-content {
+        margin-bottom: 20px;
+    }
+    .garantia {
+        font-size: 0.85rem;
+        padding: 15px;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .feature-card {
+        padding: 20px;
+    }
+    .feature-card h3 {
+        font-size: 1.2rem;
+    }
+    .caio-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .caio-content {
+        text-align: center;
+    }
+    .caio-photo {
+        flex: auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .preco-novo {
+        font-size: 2.2rem;
+    }
+    .preco-antigo {
+        font-size: 1rem;
     }
     .carousel-btn {
         width: 36px;
         height: 36px;
         font-size: 1.2rem;
     }
-    .caio-grid {
-        flex-direction: column;
+    .btn-prev {
+        left: 5px;
+    }
+    .btn-next {
+        right: 5px;
+    }
+    .carousel-slide {
+        width: 100%;
+    }
+    .carousel-slide img {
+        border-radius: 16px;
+    }
+    section {
+        padding: 40px 0;
+    }
+    .container {
+        padding: 0 16px;
+    }
+    .badge {
+        font-size: 0.7rem;
+    }
+    h2 {
+        font-size: 1.5rem !important;
     }
 }
